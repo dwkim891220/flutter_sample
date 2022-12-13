@@ -5,21 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_sample",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "flutter_sample (profile mode)",
+            "name": "dev",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "args": [
+				"--flavor",
+				"dev"
+			]
         },
         {
-            "name": "flutter_sample (release mode)",
+            "name": "prod",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "args": [
+				"--flavor",
+				"prod"
+			]
         }
     ]
 }
