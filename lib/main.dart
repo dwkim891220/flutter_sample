@@ -16,10 +16,6 @@ Future<void> main() async {
   runApp(const App());
 }
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  _parseInitialMessage(message);
-}
-
 _initFcm() async {
   final authorized = await _requestPermissions();
 
