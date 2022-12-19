@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home/home_page.dart';
+import 'presentation/home/home_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -22,7 +22,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: const HomePage(),
     );
   }
 }
