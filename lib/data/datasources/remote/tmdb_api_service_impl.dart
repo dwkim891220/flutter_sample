@@ -7,7 +7,7 @@ import 'package:either_dart/either.dart';
 import 'package:flutter_sample/data/models/responses/get_popular_movie_list_response.dart';
 import 'package:http/http.dart';
 
-import '../../../config/base_urls.dart';
+import '../../../config/urls_base.dart';
 import '../../constants/paths.dart';
 import '../../../core/network_error.dart';
 
@@ -37,12 +37,6 @@ class TMDBApiServiceImpl extends ITMDBApiService {
       return Right(result.right);
     }
   }
-
-  // final Map<String, String> _defaultQueryMap = {
-  //   'api-key': '7c89f0483dfba44fb752ae6d50393fd0',
-  //   'language': 'ko-KR',
-  //   'region': 'KR'
-  // };
 
   Future<Either<Map<String, Object>, NetworkError>> _getRequest(
     String path,

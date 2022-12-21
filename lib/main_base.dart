@@ -6,12 +6,24 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_sample/app.dart';
+import 'package:flutter_sample/config/urls_base.dart';
+import 'package:flutter_sample/data/constants/urls_dev.dart';
+import 'package:get_it/get_it.dart';
 
-Future<void> main() async {
+import 'data/constants/urls_prod.dart';
+import 'data/datasources/remote/tmdb_api_service.dart';
+import 'data/datasources/remote/tmdb_api_service_impl.dart';
+import 'data/repositories/remote/movie_repo.dart';
+import 'domain/repositories/movie_repo.dart';
+
+enum Flavor { dev, prod }
+
+Future<void> baseMain(Flavor flavor) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   await _initFcm();
+  _initUrls(flavor);
+  _initDataLayer();
 
   runApp(const App());
 }
@@ -137,6 +149,31 @@ _showLocalNotification(
 _clickLocalNotification(NotificationResponse response) {
   final payload = response.payload;
   print("payload = $payload");
+}
+
+_initUrls(Flavor flavor) {
+  BaseUrls urls;
+
+  switch (flavor) {
+    case Flavor.dev:
+      urls = UrlsDev();
+      break;
+    case Flavor.prod:
+      urls = UrlsProd();
+      break;
+  }
+
+  GetIt.instance.registerSingleton<BaseUrls>(urls);
+}
+
+_initDataLayer() {
+  final apiService = TMDBApiServiceImpl(GetIt.instance.get<BaseUrls>());
+  GetIt.instance.registerSingleton<ITMDBApiService>(apiService);
+
+  final movieRepo = MovieRepository(
+    tmdbApiService: GetIt.instance.get<ITMDBApiService>(),
+  );
+  GetIt.instance.registerSingleton<IMovieRepository>(movieRepo);
 }
 
 class AndroidNotificationPlugin {
