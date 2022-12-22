@@ -154,7 +154,7 @@ _clickLocalNotification(NotificationResponse response) {
 }
 
 _initUrls(Flavor flavor) {
-  BaseUrls urls;
+  IBaseUrls urls;
 
   switch (flavor) {
     case Flavor.dev:
@@ -165,11 +165,11 @@ _initUrls(Flavor flavor) {
       break;
   }
 
-  GetIt.instance.registerSingleton<BaseUrls>(urls);
+  GetIt.instance.registerSingleton<IBaseUrls>(urls);
 }
 
 _initDataLayer() {
-  final apiService = TMDBApiServiceImpl(GetIt.instance.get<BaseUrls>());
+  final apiService = TMDBApiServiceImpl(GetIt.instance.get<IBaseUrls>());
   GetIt.instance.registerSingleton<ITMDBApiService>(apiService);
 
   final movieRepo = MovieRepository(

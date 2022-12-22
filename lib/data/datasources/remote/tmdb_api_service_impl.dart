@@ -14,7 +14,7 @@ import '../../../core/network_error.dart';
 class TMDBApiServiceImpl extends ITMDBApiService {
   TMDBApiServiceImpl(this._urls);
 
-  final BaseUrls _urls;
+  final IBaseUrls _urls;
 
   @override
   Future<Either<GetPopularMovieListResponse, NetworkError>> getPopularMovieList(

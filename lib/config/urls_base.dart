@@ -1,3 +1,3 @@
-abstract class BaseUrls {
+abstract class IBaseUrls {
   abstract String hostUrl;
 }
