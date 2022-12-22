@@ -6,5 +6,6 @@ abstract class IMovieRepository {
     String apiKey,
     String language,
     String region,
+    int page,
   );
 }

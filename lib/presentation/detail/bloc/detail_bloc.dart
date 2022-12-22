@@ -21,10 +21,10 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
   _fetchDetail(DetailEvent event, Emitter<DetailState> emit) async {
     final response = await getPopularMovieListUsecase.call(
       GetPopularMovieListRequest(
-        apiKey: '7c89f0483dfba44fb752ae6d50393fd0',
-        language: 'ko-KR',
-        region: 'KR',
-      ),
+          apiKey: '7c89f0483dfba44fb752ae6d50393fd0',
+          language: 'ko-KR',
+          region: 'KR',
+          page: 0),
     );
 
     if (response is Success && response.data != null) {

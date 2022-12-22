@@ -4,11 +4,13 @@ import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_sample/app.dart';
 import 'package:flutter_sample/config/urls_base.dart';
 import 'package:flutter_sample/data/constants/urls_dev.dart';
 import 'package:flutter_sample/domain/usecases/get_popular_movie_list_usecase.dart';
+import 'package:flutter_sample/presentation/utils/my_bloc_observer.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/constants/urls_prod.dart';
@@ -27,12 +29,14 @@ Future<void> baseMain(Flavor flavor) async {
   _initDataLayer();
   _initDomainLayer();
 
+  Bloc.observer = MyBlocObserver();
   runApp(const App());
 }
 
 _initFcm() async {
   final authorized = await _requestPermissions();
 
+  //TODO example: use fcm token
   final token = await FirebaseMessaging.instance.getToken();
 
   if (authorized) {

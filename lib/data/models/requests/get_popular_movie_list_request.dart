@@ -9,6 +9,7 @@ class GetPopularMovieListRequest with _$GetPopularMovieListRequest {
     required String apiKey,
     required String language,
     required String region,
+    required int page,
   }) = _GetPopularMovieListRequest;
 
   factory GetPopularMovieListRequest.fromJson(Map<String, dynamic> json) =>

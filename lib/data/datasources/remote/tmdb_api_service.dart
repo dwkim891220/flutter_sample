@@ -8,5 +8,6 @@ abstract class ITMDBApiService {
     String apiKey,
     String language,
     String region,
+    int page,
   );
 }

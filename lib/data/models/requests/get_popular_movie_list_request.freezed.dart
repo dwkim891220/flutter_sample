@@ -24,6 +24,7 @@ mixin _$GetPopularMovieListRequest {
   String get apiKey => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get region => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,7 @@ abstract class $GetPopularMovieListRequestCopyWith<$Res> {
       _$GetPopularMovieListRequestCopyWithImpl<$Res,
           GetPopularMovieListRequest>;
   @useResult
-  $Res call({String apiKey, String language, String region});
+  $Res call({String apiKey, String language, String region, int page});
 }
 
 /// @nodoc
@@ -58,6 +59,7 @@ class _$GetPopularMovieListRequestCopyWithImpl<$Res,
     Object? apiKey = null,
     Object? language = null,
     Object? region = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
       apiKey: null == apiKey
@@ -72,6 +74,10 @@ class _$GetPopularMovieListRequestCopyWithImpl<$Res,
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -85,7 +91,7 @@ abstract class _$$_GetPopularMovieListRequestCopyWith<$Res>
       __$$_GetPopularMovieListRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String apiKey, String language, String region});
+  $Res call({String apiKey, String language, String region, int page});
 }
 
 /// @nodoc
@@ -104,6 +110,7 @@ class __$$_GetPopularMovieListRequestCopyWithImpl<$Res>
     Object? apiKey = null,
     Object? language = null,
     Object? region = null,
+    Object? page = null,
   }) {
     return _then(_$_GetPopularMovieListRequest(
       apiKey: null == apiKey
@@ -118,6 +125,10 @@ class __$$_GetPopularMovieListRequestCopyWithImpl<$Res>
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -126,7 +137,10 @@ class __$$_GetPopularMovieListRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GetPopularMovieListRequest implements _GetPopularMovieListRequest {
   _$_GetPopularMovieListRequest(
-      {required this.apiKey, required this.language, required this.region});
+      {required this.apiKey,
+      required this.language,
+      required this.region,
+      required this.page});
 
   factory _$_GetPopularMovieListRequest.fromJson(Map<String, dynamic> json) =>
       _$$_GetPopularMovieListRequestFromJson(json);
@@ -137,10 +151,12 @@ class _$_GetPopularMovieListRequest implements _GetPopularMovieListRequest {
   final String language;
   @override
   final String region;
+  @override
+  final int page;
 
   @override
   String toString() {
-    return 'GetPopularMovieListRequest(apiKey: $apiKey, language: $language, region: $region)';
+    return 'GetPopularMovieListRequest(apiKey: $apiKey, language: $language, region: $region, page: $page)';
   }
 
   @override
@@ -151,12 +167,13 @@ class _$_GetPopularMovieListRequest implements _GetPopularMovieListRequest {
             (identical(other.apiKey, apiKey) || other.apiKey == apiKey) &&
             (identical(other.language, language) ||
                 other.language == language) &&
-            (identical(other.region, region) || other.region == region));
+            (identical(other.region, region) || other.region == region) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, apiKey, language, region);
+  int get hashCode => Object.hash(runtimeType, apiKey, language, region, page);
 
   @JsonKey(ignore: true)
   @override
@@ -178,7 +195,8 @@ abstract class _GetPopularMovieListRequest
   factory _GetPopularMovieListRequest(
       {required final String apiKey,
       required final String language,
-      required final String region}) = _$_GetPopularMovieListRequest;
+      required final String region,
+      required final int page}) = _$_GetPopularMovieListRequest;
 
   factory _GetPopularMovieListRequest.fromJson(Map<String, dynamic> json) =
       _$_GetPopularMovieListRequest.fromJson;
@@ -189,6 +207,8 @@ abstract class _GetPopularMovieListRequest
   String get language;
   @override
   String get region;
+  @override
+  int get page;
   @override
   @JsonKey(ignore: true)
   _$$_GetPopularMovieListRequestCopyWith<_$_GetPopularMovieListRequest>

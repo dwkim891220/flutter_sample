@@ -12,6 +12,7 @@ _$_GetPopularMovieListRequest _$$_GetPopularMovieListRequestFromJson(
       apiKey: json['apiKey'] as String,
       language: json['language'] as String,
       region: json['region'] as String,
+      page: json['page'] as int,
     );
 
 Map<String, dynamic> _$$_GetPopularMovieListRequestToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_GetPopularMovieListRequestToJson(
       'apiKey': instance.apiKey,
       'language': instance.language,
       'region': instance.region,
+      'page': instance.page,
     };

@@ -21,6 +21,7 @@ class TMDBApiServiceImpl extends ITMDBApiService {
     String apiKey,
     String language,
     String region,
+    int page,
   ) async {
     final result = await _getRequest(
       Paths.popular,
@@ -28,6 +29,7 @@ class TMDBApiServiceImpl extends ITMDBApiService {
         'api_key': apiKey,
         'language': language,
         'region': region,
+        'page': page.toString(),
       },
     );
 

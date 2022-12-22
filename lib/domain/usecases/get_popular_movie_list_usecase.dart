@@ -21,5 +21,6 @@ class GetPopularMovieListUsecase
         params.apiKey,
         params.language,
         params.region,
+        params.page,
       );
 }
