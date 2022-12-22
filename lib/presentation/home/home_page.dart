@@ -19,28 +19,33 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => homeBloc..add(HomeFetchListEvent()),
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Text(
-              'flutter sample',
-            ),
-            BlocBuilder<HomeBloc, HomeState>(
-              builder: (context, state) {
-                if (state is HomeFetchingSuccessState) {
-                  return ListView.builder(
-                    itemBuilder: (context, index) =>
-                        ItemMovie(item: state.list[index]),
-                  );
-                } else if (state is HomeFetchingFailedState) {
-                  return const HomeFail();
-                } else {
-                  return const HomeLoading();
-                }
-              },
-            ),
-          ],
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              const Text(
+                'flutter sample',
+              ),
+              Expanded(
+                child: BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (state is HomeFetchingSuccessState) {
+                      return ListView.builder(
+                        itemCount: state.list.length,
+                        itemBuilder: (context, index) =>
+                            ItemMovie(item: state.list[index]),
+                      );
+                    } else if (state is HomeFetchingFailedState) {
+                      return const HomeFail();
+                    } else {
+                      return const HomeLoading();
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

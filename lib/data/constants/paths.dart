@@ -1,3 +1,3 @@
 class Paths {
-  static const popular = 'movie/popular';
+  static const popular = '3/movie/popular';
 }

@@ -25,7 +25,7 @@ class TMDBApiServiceImpl extends ITMDBApiService {
     final result = await _getRequest(
       Paths.popular,
       {
-        'api-key': apiKey,
+        'api_key': apiKey,
         'language': language,
         'region': region,
       },
@@ -38,7 +38,7 @@ class TMDBApiServiceImpl extends ITMDBApiService {
     }
   }
 
-  Future<Either<Map<String, Object>, NetworkError>> _getRequest(
+  Future<Either<Map<String, dynamic>, NetworkError>> _getRequest(
     String path,
     Map<String, String> queryParam,
   ) async {
@@ -65,7 +65,7 @@ class TMDBApiServiceImpl extends ITMDBApiService {
         ),
       );
     } else {
-      final parsed = jsonDecode(response.body).cast<Map<String, Object>>();
+      final parsed = jsonDecode(response.body).cast<String, dynamic>();
       return Left(parsed);
     }
   }

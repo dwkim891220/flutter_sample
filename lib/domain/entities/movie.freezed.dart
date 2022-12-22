@@ -20,11 +20,11 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Movie {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_average')
-  String get voteAverage => throw _privateConstructorUsedError;
+  double get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
   String get releaseDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
@@ -41,10 +41,10 @@ abstract class $MovieCopyWith<$Res> {
       _$MovieCopyWithImpl<$Res, Movie>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String title,
       String overview,
-      @JsonKey(name: 'vote_average') String voteAverage,
+      @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'release_date') String releaseDate,
       @JsonKey(name: 'poster_path') String posterPath});
 }
@@ -73,7 +73,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -85,7 +85,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       releaseDate: null == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -105,10 +105,10 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String title,
       String overview,
-      @JsonKey(name: 'vote_average') String voteAverage,
+      @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'release_date') String releaseDate,
       @JsonKey(name: 'poster_path') String posterPath});
 }
@@ -133,7 +133,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -145,7 +145,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       releaseDate: null == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -160,27 +160,28 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Movie with DiagnosticableTreeMixin implements _Movie {
+class _$_Movie extends _Movie with DiagnosticableTreeMixin {
   const _$_Movie(
       {required this.id,
       required this.title,
       required this.overview,
       @JsonKey(name: 'vote_average') required this.voteAverage,
       @JsonKey(name: 'release_date') required this.releaseDate,
-      @JsonKey(name: 'poster_path') required this.posterPath});
+      @JsonKey(name: 'poster_path') required this.posterPath})
+      : super._();
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
       _$$_MovieFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String title;
   @override
   final String overview;
   @override
   @JsonKey(name: 'vote_average')
-  final String voteAverage;
+  final double voteAverage;
   @override
   @JsonKey(name: 'release_date')
   final String releaseDate;
@@ -242,27 +243,28 @@ class _$_Movie with DiagnosticableTreeMixin implements _Movie {
   }
 }
 
-abstract class _Movie implements Movie {
+abstract class _Movie extends Movie {
   const factory _Movie(
-          {required final String id,
+          {required final int id,
           required final String title,
           required final String overview,
-          @JsonKey(name: 'vote_average') required final String voteAverage,
+          @JsonKey(name: 'vote_average') required final double voteAverage,
           @JsonKey(name: 'release_date') required final String releaseDate,
           @JsonKey(name: 'poster_path') required final String posterPath}) =
       _$_Movie;
+  const _Movie._() : super._();
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get title;
   @override
   String get overview;
   @override
   @JsonKey(name: 'vote_average')
-  String get voteAverage;
+  double get voteAverage;
   @override
   @JsonKey(name: 'release_date')
   String get releaseDate;

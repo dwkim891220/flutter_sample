@@ -7,10 +7,10 @@ part of 'movie.dart';
 // **************************************************************************
 
 _$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
-      id: json['id'] as String,
+      id: json['id'] as int,
       title: json['title'] as String,
       overview: json['overview'] as String,
-      voteAverage: json['vote_average'] as String,
+      voteAverage: (json['vote_average'] as num).toDouble(),
       releaseDate: json['release_date'] as String,
       posterPath: json['poster_path'] as String,
     );
