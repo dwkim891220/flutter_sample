@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_sample/domain/usecases/get_popular_movie_list_usecase.dart';
 import 'package:flutter_sample/presentation/home/home_fail.dart';
 import 'package:flutter_sample/presentation/home/item_movie.dart';
+import 'package:get_it/get_it.dart';
 
 import 'bloc/home_bloc.dart';
 import 'home_loading.dart';
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final useCase = RepositoryProvider.of<GetPopularMovieListUsecase>(context);
+    final useCase = GetIt.instance.get<GetPopularMovieListUsecase>();
     final homeBloc = HomeBloc(getPopularMovieListUsecase: useCase);
 
     return BlocProvider(

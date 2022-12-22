@@ -8,6 +8,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_sample/app.dart';
 import 'package:flutter_sample/config/urls_base.dart';
 import 'package:flutter_sample/data/constants/urls_dev.dart';
+import 'package:flutter_sample/domain/usecases/get_popular_movie_list_usecase.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/constants/urls_prod.dart';
@@ -24,6 +25,7 @@ Future<void> baseMain(Flavor flavor) async {
   await _initFcm();
   _initUrls(flavor);
   _initDataLayer();
+  _initDomainLayer();
 
   runApp(const App());
 }
@@ -174,6 +176,13 @@ _initDataLayer() {
     tmdbApiService: GetIt.instance.get<ITMDBApiService>(),
   );
   GetIt.instance.registerSingleton<IMovieRepository>(movieRepo);
+}
+
+_initDomainLayer() {
+  final movieRepository = GetIt.instance.get<IMovieRepository>();
+  GetIt.instance.registerSingleton<GetPopularMovieListUsecase>(
+    GetPopularMovieListUsecase(movieRepository),
+  );
 }
 
 class AndroidNotificationPlugin {
