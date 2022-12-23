@@ -13,6 +13,8 @@ class Movie with _$Movie {
     required int id,
     required String title,
     required String overview,
+    @JsonKey(name: 'backdrop_path') required String backDropPath,
+    @JsonKey(name: 'original_title') required String originalTitle,
     @JsonKey(name: 'vote_average') required double voteAverage,
     @JsonKey(name: 'release_date') required String releaseDate,
     @JsonKey(name: 'poster_path') required String posterPath,
@@ -21,4 +23,5 @@ class Movie with _$Movie {
   factory Movie.fromJson(Map<String, Object?> json) => _$MovieFromJson(json);
 
   get posterUrl => 'https://image.tmdb.org/t/p/w200$posterPath';
+  get backDropUrl => 'https://image.tmdb.org/t/p/w200$backDropPath';
 }

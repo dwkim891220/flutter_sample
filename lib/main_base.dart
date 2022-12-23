@@ -9,6 +9,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_sample/app.dart';
 import 'package:flutter_sample/config/urls_base.dart';
 import 'package:flutter_sample/data/constants/urls_dev.dart';
+import 'package:flutter_sample/domain/usecases/get_movie_detail_usecase.dart';
 import 'package:flutter_sample/domain/usecases/get_popular_movie_list_usecase.dart';
 import 'package:flutter_sample/presentation/utils/my_bloc_observer.dart';
 import 'package:get_it/get_it.dart';
@@ -30,7 +31,7 @@ Future<void> baseMain(Flavor flavor) async {
   _initDomainLayer();
 
   Bloc.observer = MyBlocObserver();
-  runApp(const App());
+  runApp(App());
 }
 
 _initFcm() async {
@@ -186,6 +187,10 @@ _initDomainLayer() {
   final movieRepository = GetIt.instance.get<IMovieRepository>();
   GetIt.instance.registerSingleton<GetPopularMovieListUsecase>(
     GetPopularMovieListUsecase(movieRepository),
+  );
+
+  GetIt.instance.registerSingleton<GetMovieDetailUsecase>(
+    GetMovieDetailUsecase(movieRepository),
   );
 }
 

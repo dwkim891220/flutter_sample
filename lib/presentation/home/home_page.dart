@@ -8,10 +8,11 @@ import 'package:flutter_sample/presentation/utils/list_util.dart';
 import 'package:get_it/get_it.dart';
 
 import 'bloc/home_bloc.dart';
-import 'home_loading.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  static String path = '/';
 
   @override
   State<HomePage> createState() => _HomePageState();

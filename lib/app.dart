@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/presentation/detail/detail_page.dart';
+import 'package:go_router/go_router.dart';
 import 'presentation/home/home_page.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  App({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -21,7 +23,30 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      routerConfig: GoRouter(
+        initialLocation: HomePage.path,
+        routes: [
+          _homeRoute,
+        ],
+      ),
     );
   }
+
+  final GoRoute _homeRoute = GoRoute(
+    name: 'home',
+    path: HomePage.path,
+    builder: (context, state) => const HomePage(),
+    routes: [
+      GoRoute(
+        name: 'detail',
+        path: 'detail/:id',
+        builder: (context, state) {
+          final queryId = state.params['id'];
+          final id = int.tryParse(queryId!) ?? 0;
+
+          return DetailPage(id: id);
+        },
+      ),
+    ],
+  );
 }

@@ -5,4 +5,8 @@ abstract class DetailEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class DetailFetchListEvent extends DetailEvent {}
+class FetchDetail extends DetailEvent {
+  FetchDetail({required this.id});
+
+  final int id;
+}

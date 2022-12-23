@@ -23,6 +23,10 @@ mixin _$Movie {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
+  @JsonKey(name: 'backdrop_path')
+  String get backDropPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_title')
+  String get originalTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_average')
   double get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
@@ -44,6 +48,8 @@ abstract class $MovieCopyWith<$Res> {
       {int id,
       String title,
       String overview,
+      @JsonKey(name: 'backdrop_path') String backDropPath,
+      @JsonKey(name: 'original_title') String originalTitle,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'release_date') String releaseDate,
       @JsonKey(name: 'poster_path') String posterPath});
@@ -65,6 +71,8 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? id = null,
     Object? title = null,
     Object? overview = null,
+    Object? backDropPath = null,
+    Object? originalTitle = null,
     Object? voteAverage = null,
     Object? releaseDate = null,
     Object? posterPath = null,
@@ -81,6 +89,14 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
       overview: null == overview
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
+              as String,
+      backDropPath: null == backDropPath
+          ? _value.backDropPath
+          : backDropPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      originalTitle: null == originalTitle
+          ? _value.originalTitle
+          : originalTitle // ignore: cast_nullable_to_non_nullable
               as String,
       voteAverage: null == voteAverage
           ? _value.voteAverage
@@ -108,6 +124,8 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       {int id,
       String title,
       String overview,
+      @JsonKey(name: 'backdrop_path') String backDropPath,
+      @JsonKey(name: 'original_title') String originalTitle,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'release_date') String releaseDate,
       @JsonKey(name: 'poster_path') String posterPath});
@@ -125,6 +143,8 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
     Object? id = null,
     Object? title = null,
     Object? overview = null,
+    Object? backDropPath = null,
+    Object? originalTitle = null,
     Object? voteAverage = null,
     Object? releaseDate = null,
     Object? posterPath = null,
@@ -141,6 +161,14 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
       overview: null == overview
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
+              as String,
+      backDropPath: null == backDropPath
+          ? _value.backDropPath
+          : backDropPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      originalTitle: null == originalTitle
+          ? _value.originalTitle
+          : originalTitle // ignore: cast_nullable_to_non_nullable
               as String,
       voteAverage: null == voteAverage
           ? _value.voteAverage
@@ -165,6 +193,8 @@ class _$_Movie extends _Movie with DiagnosticableTreeMixin {
       {required this.id,
       required this.title,
       required this.overview,
+      @JsonKey(name: 'backdrop_path') required this.backDropPath,
+      @JsonKey(name: 'original_title') required this.originalTitle,
       @JsonKey(name: 'vote_average') required this.voteAverage,
       @JsonKey(name: 'release_date') required this.releaseDate,
       @JsonKey(name: 'poster_path') required this.posterPath})
@@ -180,6 +210,12 @@ class _$_Movie extends _Movie with DiagnosticableTreeMixin {
   @override
   final String overview;
   @override
+  @JsonKey(name: 'backdrop_path')
+  final String backDropPath;
+  @override
+  @JsonKey(name: 'original_title')
+  final String originalTitle;
+  @override
   @JsonKey(name: 'vote_average')
   final double voteAverage;
   @override
@@ -191,7 +227,7 @@ class _$_Movie extends _Movie with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Movie(id: $id, title: $title, overview: $overview, voteAverage: $voteAverage, releaseDate: $releaseDate, posterPath: $posterPath)';
+    return 'Movie(id: $id, title: $title, overview: $overview, backDropPath: $backDropPath, originalTitle: $originalTitle, voteAverage: $voteAverage, releaseDate: $releaseDate, posterPath: $posterPath)';
   }
 
   @override
@@ -202,6 +238,8 @@ class _$_Movie extends _Movie with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('overview', overview))
+      ..add(DiagnosticsProperty('backDropPath', backDropPath))
+      ..add(DiagnosticsProperty('originalTitle', originalTitle))
       ..add(DiagnosticsProperty('voteAverage', voteAverage))
       ..add(DiagnosticsProperty('releaseDate', releaseDate))
       ..add(DiagnosticsProperty('posterPath', posterPath));
@@ -216,6 +254,10 @@ class _$_Movie extends _Movie with DiagnosticableTreeMixin {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.overview, overview) ||
                 other.overview == overview) &&
+            (identical(other.backDropPath, backDropPath) ||
+                other.backDropPath == backDropPath) &&
+            (identical(other.originalTitle, originalTitle) ||
+                other.originalTitle == originalTitle) &&
             (identical(other.voteAverage, voteAverage) ||
                 other.voteAverage == voteAverage) &&
             (identical(other.releaseDate, releaseDate) ||
@@ -226,8 +268,8 @@ class _$_Movie extends _Movie with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, title, overview, voteAverage, releaseDate, posterPath);
+  int get hashCode => Object.hash(runtimeType, id, title, overview,
+      backDropPath, originalTitle, voteAverage, releaseDate, posterPath);
 
   @JsonKey(ignore: true)
   @override
@@ -248,6 +290,8 @@ abstract class _Movie extends Movie {
           {required final int id,
           required final String title,
           required final String overview,
+          @JsonKey(name: 'backdrop_path') required final String backDropPath,
+          @JsonKey(name: 'original_title') required final String originalTitle,
           @JsonKey(name: 'vote_average') required final double voteAverage,
           @JsonKey(name: 'release_date') required final String releaseDate,
           @JsonKey(name: 'poster_path') required final String posterPath}) =
@@ -262,6 +306,12 @@ abstract class _Movie extends Movie {
   String get title;
   @override
   String get overview;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  String get backDropPath;
+  @override
+  @JsonKey(name: 'original_title')
+  String get originalTitle;
   @override
   @JsonKey(name: 'vote_average')
   double get voteAverage;
