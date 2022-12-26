@@ -1,16 +1,40 @@
 # flutter_sample
 
-A new Flutter project.
+template of simple Flutter project   
+this project is pursue *__Clean Architecture__*
+```
+/
+- ios
+- android
+- lib
+	- src
+	- config
+	- core
+	- presentation
+		- blocs
+		- pages
+		- widgets
+	- domain
+		- repositories (repository interface)
+		- entities (domain.repository entities)
+		- usecases
+	- data
+		- repositories (domain.repository impl)
+		- models (request, response, client model)
+		- datasources (request interface)
+```
 
-## Getting Started
+### __plugins__
+- _get_it_   
+    for dependency injection
+- _flutter_bloc_   
+    separate widget code and business logic code   
+    (singleton injection use get_it instead of RepositoryProvider)
+- _go_router_
+- _flutter_local_notification_   
+    foreground, background, app killed notification of OS (iOS, Android)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### __project configure__
+- _firebase_   
+    for FCM(firebase cloud messaging) 
+- separate build flavors firebase config files, app icon, app name
