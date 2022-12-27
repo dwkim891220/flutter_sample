@@ -2,7 +2,7 @@
 
 template of simple Flutter project   
 this project is pursue *__Clean Architecture__*
-https://github.com/dwkim891220/flutter_sample/files/10306121/application_architecture.pdf
+![clean_architecture](https://github.com/dwkim891220/flutter_sample/files/10306121/application_architecture.pdf)
 ```
 /
 - ios
