@@ -28,9 +28,12 @@ class TMDBApiServiceImpl extends ITMDBApiService {
 
     try {
       response = await client.get(uri);
-    } on Exception {
-      return const Right(
-        NetworkError(code: 0, message: ''),
+    } catch (e) {
+      return Right(
+        NetworkError(
+          code: -1,
+          message: '${uri.toString()} ${e.toString()}',
+        ),
       );
     } finally {
       client.close();
@@ -46,6 +49,27 @@ class TMDBApiServiceImpl extends ITMDBApiService {
     } else {
       final parsed = jsonDecode(response.body).cast<String, dynamic>();
       return Left(parsed);
+    }
+  }
+
+  Either<T, NetworkError> _responseParsing<T>(
+    Either<Map<String, dynamic>, NetworkError> result,
+    T Function() convertJson,
+  ) {
+    if (result.isLeft) {
+      try {
+        return Left(convertJson());
+      } on Exception {
+        final jsonString = result.left.toString();
+        final error = NetworkError(
+          code: -1,
+          message: "response parsing Error $jsonString",
+        );
+
+        return Right(error);
+      }
+    } else {
+      return Right(result.right);
     }
   }
 
@@ -66,11 +90,10 @@ class TMDBApiServiceImpl extends ITMDBApiService {
       },
     );
 
-    if (result.isLeft) {
-      return Left(GetPopularMovieListResponse.fromJson(result.left));
-    } else {
-      return Right(result.right);
-    }
+    return _responseParsing(
+      result,
+      () => GetPopularMovieListResponse.fromJson(result.left),
+    );
   }
 
   @override
@@ -89,10 +112,9 @@ class TMDBApiServiceImpl extends ITMDBApiService {
       },
     );
 
-    if (result.isLeft) {
-      return Left(Movie.fromJson(result.left));
-    } else {
-      return Right(result.right);
-    }
+    return _responseParsing(
+      result,
+      () => Movie.fromJson(result.left),
+    );
   }
 }
