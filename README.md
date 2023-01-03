@@ -31,7 +31,7 @@ this project is pursue *__Clean Architecture__*.
     for dependency injection
 - _flutter_bloc_   
     separate widget code and business logic code   
-    (singleton injection use get_it instead of RepositoryProvider)
+    (singleton injection use ```get_it``` instead of ```RepositoryProvider```)
 - _go_router_
 - _flutter_local_notification_   
     foreground, background, app killed notification of OS (iOS, Android)
