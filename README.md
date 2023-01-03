@@ -2,8 +2,9 @@
 
 template of simple Flutter project   
 this project is pursue *__Clean Architecture__*.  
-![application_architecture](https://user-images.githubusercontent.com/29171455/209616504-1df3e205-b3f6-4986-bef8-01ba555a4486.jpg)
 
+![application_architecture](https://user-images.githubusercontent.com/29171455/209616504-1df3e205-b3f6-4986-bef8-01ba555a4486.jpg)
+   
 ```
 /
 - ios
