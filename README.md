@@ -2,8 +2,9 @@
 
 template of simple Flutter project   
 this project is pursue *__Clean Architecture__*.  
-![application_architecture](https://user-images.githubusercontent.com/29171455/209616504-1df3e205-b3f6-4986-bef8-01ba555a4486.jpg)
 
+![application_architecture](https://user-images.githubusercontent.com/29171455/209616504-1df3e205-b3f6-4986-bef8-01ba555a4486.jpg)
+   
 ```
 /
 - ios
@@ -31,7 +32,7 @@ this project is pursue *__Clean Architecture__*.
     for dependency injection
 - _flutter_bloc_   
     separate widget code and business logic code   
-    (singleton injection use get_it instead of RepositoryProvider)
+    (singleton injection use ```get_it``` instead of ```RepositoryProvider```)
 - _go_router_
 - _flutter_local_notification_   
     foreground, background, app killed notification of OS (iOS, Android)
