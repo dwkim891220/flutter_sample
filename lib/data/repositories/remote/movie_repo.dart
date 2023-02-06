@@ -7,7 +7,7 @@ import '../../../core/data_state.dart';
 import '../../../core/network_error.dart';
 import '../../../domain/repositories/movie_repo.dart';
 
-class MovieRepository extends IMovieRepository {
+class MovieRepository implements IMovieRepository {
   MovieRepository({required this.tmdbApiService});
 
   ITMDBApiService tmdbApiService;

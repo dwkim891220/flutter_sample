@@ -12,7 +12,7 @@ import '../../../config/urls_base.dart';
 import '../../constants/paths.dart';
 import '../../../core/network_error.dart';
 
-class TMDBApiServiceImpl extends ITMDBApiService {
+class TMDBApiServiceImpl implements ITMDBApiService {
   TMDBApiServiceImpl(this._urls);
 
   final IBaseUrls _urls;
