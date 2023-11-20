@@ -16,7 +16,7 @@ class ItemMovie extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.goNamed('detail', params: {'id': item.id.toString()});
+        context.goNamed('detail', pathParameters: {'id': item.id.toString()});
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 8, top: 8, right: 8),

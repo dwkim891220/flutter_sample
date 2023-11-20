@@ -41,7 +41,7 @@ class App extends StatelessWidget {
         name: 'detail',
         path: 'detail/:id',
         builder: (context, state) {
-          final queryId = state.params['id'];
+          final queryId = state.pathParameters['id'];
           final id = int.tryParse(queryId!) ?? 0;
 
           return DetailPage(id: id);
